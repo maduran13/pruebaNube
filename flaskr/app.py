@@ -6,11 +6,15 @@ from flask_jwt_extended import JWTManager
 from flask import Flask
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://admin:12345678@converter.cmkisbgiomh9.us-east-1.rds.amazonaws.com:3306/converter'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://admin:12345678@first-database-01.cnycdfoyjqmp.us-east-1.rds.amazonaws.com:3306/first-database-01'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_SECRET_KEY'] = 'k#4ASfdfjo4343@$.-'
 app.config['UPLOAD_FOLDER'] = './originales'
 app.config['PROPAGATE_EXCEPTIONS'] = True
+app.config['BROKER_TRANSPORT'] = 'sqs'
+app.config['BROKER_TRANSPORT_OPTIONS'] = { 'region': 'us-east-1'}
+app.config['BROKER_USER'] = 'ASIAQEO3TSAJ5Q3Q4FNI'
+app.config['BROKER_PASSWORD'] = 'WmcfdMXZqjgaVadwWnIMoHiQDR44S3G5GgJqA2ey'
 
 app_context = app.app_context()
 app_context.push()
